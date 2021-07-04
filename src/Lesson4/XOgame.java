@@ -115,82 +115,23 @@ public class XOgame {
     }
 
     public static boolean checkWin(char c) {
-        for (int i = 0; ; ) {
-            for (int j = 0; j < SIZE; j++) {
-                map[i][j] = c;
-                return true;
-            }
-            break;
-
-
-        }
-        for (int i = 1; ; ) {
-
-            for (int j = 0; j < SIZE; j++) {
-                map[i][j] = c;
-                return true;
-
-            }
-            break;
-
-
-        }
-        for (int i = 2; ; ) {
-            for (int j = 0; j < SIZE; j++) {
-                map[i][j] = c;
-                return true;
-            }
-            break;
-        }
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; ; ) {
-                map[i][j] = c;
-                return true;
-            }
-            break;
-        }
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 1; ; ) {
-                map[i][j] = c;
-                return true;
-
-            }
-            break;
-
-        }
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 2; ; ) {
-                map[i][j] = c;
-                return true;
-
-            }
-            break;
-
-        }
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                if (i == j) {
-                    map[i][j] = c;
+                if ((map[i][0] == c && map[i][1] == c &&
+                        map[i][2] == c) ||
+                        (map[0][i] == c && map[1][i] == c &&
+                                map[2][i] == c))
+                    return true;
+                if ((map[0][0] == c && map[1][1] == c &&
+                        map[2][2] == c) ||
+                        (map[2][0] == c && map[1][1] == c &&
+                                map[0][2] == c))
                     return true;
 
-                }
             }
-            break;
         }
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
-                if (i + j == SIZE - 1) {
-                    map[i][j] = c;
-                    return true;
 
-                }
-            }
-            break;
-
-        }
         return false;
-
-
     }
 }
 
